@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+    <title>Consulta de Autor</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+
+<h:body>
+    <h:form>
+        <h:outputText rendered="#{!autorControlador.mostrarTable}" value="Sem dados para mostrar..." />
+        
+        <h:dataTable rendered="#{autorControlador.mostrarTable}" value="#{autorControlador.autores}" var="ps" border="1">
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Código" />
+                </f:facet>
+                <h:outputText value="#{ps.codigo}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Nome" />
+                </f:facet>
+                <h:outputText value="#{ps.nome}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Excluir" />
+                </f:facet>
+                <h:commandButton action="#{autorControlador.excluir(ps)}" value="Excluir"
+                                 onclick="return confirm('Confirma a exclusão?')" />
+            </h:column>
+        </h:dataTable>
+
+        <br/><br/>
+        <h:commandButton action="#{autorControlador.menu}" value="Voltar" />
+    </h:form>
+</h:body>
+</html>

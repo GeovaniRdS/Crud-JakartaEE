@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+    <title>Cadastro de Personagem</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+
+<h:body>
+    <h:form id="formulario">
+        <h:outputLabel value="Código" />
+        <br /><br />
+        <h:inputText id="codigo" required="true" value="#{personagemControlador.personagem.codigo}" />
+        <h:message for="codigo" />
+        <br /><br />
+
+        <h:outputLabel value="Nome do Personagem" />
+        <br /><br />
+        <h:inputText id="nome" required="true" value="#{personagemControlador.personagem.nome}" />
+        <h:message for="nome" />
+        <br /><br />
+
+        <h:outputLabel value="Livro" />
+        <br /><br />
+        <h:selectOneMenu value="#{personagemControlador.codigoLivroSelecionado}">
+            <f:selectItems var="livro" value="#{personagemControlador.livros}" itemValue="#{livro.codigo}" itemLabel="#{livro.titulo}" />
+        </h:selectOneMenu>
+        <br /><br />
+
+        <h:commandButton value="Cadastrar" action="#{personagemControlador.processarAcaoCadastrar}" />
+        <br /><br />
+        <h:commandButton value="Voltar" action="menuprincipal.xhtml" immediate="true" />
+    </h:form>
+</h:body>
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+    <title>Menu Principal</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+
+<h:body>
+    <h:form id="formAutor">
+        <h:outputLabel value="Autor" />
+        <br/>
+        <h:commandButton value="Cadastrar Autor" action="#{autorControlador.prepararCadastro}" />
+        <br/><br/>
+        <h:commandButton value="Pesquisar Autor" action="#{autorControlador.prepararConsulta}" />
+    </h:form>
+
+    <br/><br/>
+
+    <h:form id="formLivro">
+        <h:outputLabel value="Livro" />
+        <br/>
+        <h:commandButton value="Cadastrar Livro" action="#{livroControlador.prepararCadastro}" />
+        <br/><br/>
+        <h:commandButton value="Pesquisar Livro" action="#{livroControlador.prepararConsulta}" />
+    </h:form>
+
+    <br/><br/>
+
+    <h:form id="formPersonagem">
+        <h:outputLabel value="Personagem" />
+        <br/>
+        <h:commandButton value="Cadastrar Personagem" action="#{personagemControlador.prepararCadastro}" />
+        <br/><br/>
+        <h:commandButton value="Pesquisar Personagem" action="#{personagemControlador.prepararConsulta}" />
+    </h:form>
+</h:body>
+</html>

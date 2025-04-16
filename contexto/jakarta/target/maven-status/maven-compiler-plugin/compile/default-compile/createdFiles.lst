@@ -1,0 +1,5 @@
+jakarta\beans\Pais.class
+jakarta\dao\PaisDao.class
+jakarta\controlador\PaisControlador.class
+jakarta\beans\Modalidade.class
+jakarta\controlador\ModalidadeControlador.class

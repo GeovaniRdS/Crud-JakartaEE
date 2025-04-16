@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+    <title>Consulta de Personagem</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+<h:body>
+    <h:form>
+        <h:outputText rendered="#{!personagemControlador.mostrarTable}" value="Sem dados para mostrar..." />
+        <h:dataTable rendered="#{personagemControlador.mostrarTable}" value="#{personagemControlador.personagens}" var="personagem" border="1">
+            <h:column id="column1">
+                <f:facet name="header">
+                    <h:outputText value="Código" />
+                </f:facet>
+                <h:outputText value="#{personagem.codigo}" />
+            </h:column>
+            <h:column id="column2">
+                <f:facet name="header">
+                    <h:outputText value="Nome" />
+                </f:facet>
+                <h:outputText value="#{personagem.nome}" />
+            </h:column>
+            <h:column id="column3">
+                <f:facet name="header">
+                    <h:outputText value="Livro" />
+                </f:facet>
+                <h:outputText value="#{personagem.livro.titulo}" />
+            </h:column>
+            <h:column id="column4">
+                <f:facet name="header">
+                    <h:outputText value="Autor" />
+                </f:facet>
+                <h:outputText value="#{personagem.livro.autor.nome}" />
+            </h:column>
+            <h:column id="column5">
+                <f:facet name="header">
+                    <h:outputText value="Excluir" />
+                </f:facet>
+                <h:commandButton action="#{personagemControlador.excluir(personagem)}" value="Excluir" 
+                                 onclick="return confirm('Confirma a exclusão?')" />
+            </h:column>
+        </h:dataTable>
+        <br /><br />
+        <h:commandButton action="#{personagemControlador.menu}" value="Voltar" />
+    </h:form>
+</h:body>
+</html>
